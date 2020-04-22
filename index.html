@@ -32,19 +32,7 @@
             </a>
         </div>
     </nav>
-    <div class="alert alert-info mb-0" role="alert">
-        <div class="container pl-0 pl-lg-3">
-            <div class="alert-icon">
-                <i class="fas fa-search-location"></i>
-            </div>
-            To automatically search for city, turn on the geolocation 👍
-            <button type="button" class="close pr-1 pr-lg-0" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">
-                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                </span>
-            </button>
-        </div>
-    </div>
+
 
     <main class="container text-dark mt-lg-5">
         <div class="row">
@@ -99,18 +87,15 @@
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-8">
-
                                         <p> Temperature: <strong><span id="todayTemp"></span>°C</strong></p>
                                         <p> Humidity: <strong><span id="todayHum"></span>%</strong></p>
                                         <p> Wind speed: <strong><span id="todayWind"></span> km/h</strong></p>
-                                        <p> UV index: <strong><span class="badge" id="todayUV"></span></strong></p>
+                                        <p class="mb-0"> UV index: <strong><span id="todayUV"></span></strong></p>
 
-                                        <p id="wind-speed"></p>
-                                        <p id="UV-index"></p>
                                     </div>
-                                    <div class="col-4 px-0" id="todayImg">
-
-
+                                    <div class="col-4 px-0">
+                                        <img id="todayImg" src="assets/img/iconPlaceholder.png"
+                                            alt="Weather placeholder" style="width: 100%;">
                                     </div>
                                 </div>
                             </div>
@@ -121,42 +106,7 @@
                     <div class="col mt-4 pt-2">
                         <div class="card h-100" style="width: 100%;">
                             <div class="card-body container py-0">
-                                <div class="row align-items-center">
-                                    <div class="col forecast">
-                                        <img class="card-img-top p-2" src="assets/img/favicon.ico" alt="Card image cap">
-                                        <h4 class="card-title text-center mt-0">Today</h4>
-                                        <p class="card-text">text</p>
-                                        <a href="#" class="btn btn-primary">Go</a>
-                                    </div>
-
-                                    <div class="col forecast">
-                                        <img class="card-img-top p-2" src="assets/img/favicon.ico" alt="Card image cap">
-                                        <h4 class="card-title text-center mt-0">Today</h4>
-                                        <p class="card-text">text</p>
-                                        <a href="#" class="btn btn-primary">Go</a>
-                                    </div>
-
-                                    <div class="col forecast">
-                                        <img class="card-img-top p-2" src="assets/img/favicon.ico" alt="Card image cap">
-                                        <h4 class="card-title text-center mt-0">Today</h4>
-                                        <p class="card-text">text</p>
-                                        <a href="#" class="btn btn-primary">Go</a>
-                                    </div>
-
-                                    <div class="col forecast">
-                                        <img class="card-img-top p-2" src="assets/img/favicon.ico" alt="Card image cap">
-                                        <h4 class="card-title text-center mt-0">Today</h4>
-                                        <p class="card-text">text</p>
-                                        <a href="#" class="btn btn-primary">Go</a>
-                                    </div>
-
-                                    <div class="col forecast">
-                                        <img class="card-img-top p-2" src="assets/img/favicon.ico" alt="Card image cap">
-                                        <h4 class="card-title text-center mt-0">Today</h4>
-                                        <p class="card-text">text</p>
-                                        <a href="#" class="btn btn-primary">Go</a>
-                                    </div>
-
+                                <div class="row align-items-center" id="nextWeather">
                                 </div>
                             </div>
                         </div>
