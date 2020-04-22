@@ -15,7 +15,7 @@
 
 # Custom CSS Portfolio
 
-A mobile-first agile portfolio website made with custom CSS, featuring animations and modern design.
+Mobile-first web application enabling users to view current weather and forecast for a selected city.
 
 ## Link to Application
 
@@ -35,13 +35,27 @@ Follow [this link](https://yours-kkuznets.github.io/Wheather-Forecast/) to view 
 
 Clone the repository or download and unpack the source code of the project. From the project folder, open the `index.html` file with your preferred browser.
 
+## Using Application
+
+- Type in the city you want to see forecast for
+- Search by pressing enter or clicking the `Search` button
+- You will be presented with current information and weather forecast for the next 5 days on the right
+- Your search history will be displayed unded the `History` section. To clear it, click on the `Clear` button
+
 ## Additional Information
 
-You can change website's default theme by changing main colour variables in the `style.css` file.
+- Depending on the current UV index for your searched city, it will be highlighted with different colours.
+- If you search for a city and close the app, it saves your search history. When you open the app again, it will show weather information for the saved search
 
 ## Built With
 
-- HTML5, CSS3, Javascript
+- HTML5, CSS3, Javascript, jQuery, Bootstrap
+
+- [Moment.js](https://momentjs.com/) - JavaScript date library
+
+- [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
+
+- [NOW UI Kit](https://demos.creative-tim.com/now-ui-kit/index.html) - Bootstrap 4 UI kit
 
 - [Favicon.io](https://favicon.io/) - Favicon generator
 
@@ -59,4 +73,6 @@ This project is licensed under the MIT License - see the [LICENSE.txt](https://g
 
 ## Acknowledgments
 
-- Billie Thompson - [PurpleBooth](https://gist.github.com/PurpleBooth) - For [README.md](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) and [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) templates.
+- Shaw - [shshaw](https://codepen.io/shshaw) - For [animated clouds background](https://codepen.io/shshaw/pen/DxJka) template.
+
+* Billie Thompson - [PurpleBooth](https://gist.github.com/PurpleBooth) - For [README.md](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) and [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) templates.
