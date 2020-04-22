@@ -16,6 +16,16 @@ function initPage() {
     const APIKey = "c9a9ed03a355403f4cb9a36e931c0b4a";
     //  When search button is clicked, read the city name typed by the user
 
+    function getUVindex(lat, lon) {
+        let UVQueryURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&cnt=1";
+        axios.get(UVQueryURL)
+            .then(function (response) {
+                $('#todayUV').text(response.data[0].value);
+                currentUVEl.innerHTML = "UV Index: ";
+                currentUVEl.append(UVIndex);
+            });
+    }
+
     function getWeather() {
         var cityName = searchHistory[searchHistory.length - 1]
         //  Using saved city name, execute a current condition get request from open weather map api
@@ -26,24 +36,15 @@ function initPage() {
                 //  Parse response to display current conditions
                 //  Method for using "date" objects obtained from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
                 $('#todayTitle').text(cityName + ', ' + moment().format("MMMM Do"));
-
                 $('#todayTemp').text(Math.round(((response.data.main.temp - 273.15) + Number.EPSILON) * 10) / 10);
                 $('#todayHum').text(response.data.main.humidity);
-                currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
+                $('#todayWind').text(Math.round(((response.data.wind.speed * 1.609344) + Number.EPSILON) * 10) / 10);
                 let lat = response.data.coord.lat;
                 let lon = response.data.coord.lon;
-                let UVQueryURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&cnt=1";
-                axios.get(UVQueryURL)
-                    .then(function (response) {
-                        let UVIndex = document.createElement("span");
-                        UVIndex.setAttribute("class", "badge badge-danger");
-                        UVIndex.innerHTML = response.data[0].value;
-                        currentUVEl.innerHTML = "UV Index: ";
-                        currentUVEl.append(UVIndex);
-                    });
-                var todayImg = `
-                <img src="https://openweathermap.org/img/wn/` + response.data.weather[0].icon + `@2x.png" style="width: 100%" alt="` + response.data.weather[0].description + `">
-                `
+                getUVindex(lat, lon);
+                var todayImg = `<img src="https://openweathermap.org/img/wn/` +
+                    response.data.weather[0].icon + `@2x.png" style="width: 100%" alt="` +
+                    response.data.weather[0].description + `">`
                 $('#todayImg').append(todayImg)
                 //  Using saved city name, execute a 5-day forecast get request from open weather map api
                 let cityID = response.data.id;
