@@ -1,14 +1,8 @@
 function initPage() {
     const inputEl = document.getElementById("city-input");
-    const searchEl = document.getElementById("search-button");
+
     const clearEl = document.getElementById("clear-history");
-    const nameEl = document.getElementById("city-name");
-    const currentPicEl = document.getElementById("current-pic");
-    const currentTempEl = document.getElementById("temperature");
-    const currentHumidityEl = document.getElementById("humidity"); 4
-    const currentWindEl = document.getElementById("wind-speed");
-    const currentUVEl = document.getElementById("UV-index");
-    const historyEl = document.getElementById("history");
+
     let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
     console.log(searchHistory);
 
@@ -20,63 +14,67 @@ function initPage() {
         let UVQueryURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&cnt=1";
         axios.get(UVQueryURL)
             .then(function (response) {
-                $('#todayUV').text(response.data[0].value);
-                currentUVEl.innerHTML = "UV Index: ";
-                currentUVEl.append(UVIndex);
+                var uvVal = response.data[0].value;
+                var todayUV = $('#todayUV');
+                todayUV.text(uvVal);
+                $(todayUV).attr('class', 'badge mb-0')
+                if (uvVal > 0 && uvVal <= 2) {
+                    $(todayUV).addClass('badge-info');
+                }
+                else if (uvVal > 2 && uvVal <= 5) {
+                    $(todayUV).addClass('badge-success');
+                }
+                else if (uvVal > 5 && uvVal <= 7) {
+                    $(todayUV).addClass('badge-warning');
+                }
+                else if (uvVal > 7 && uvVal <= 10) {
+                    $(todayUV).addClass('badge-primary');
+                }
+                else if (uvVal > 10) {
+                    $(todayUV).addClass('badge-danger');
+                }
             });
     }
 
+    function getNextWeather(cityID) {
+        //  Using saved city name, execute a 5-day forecast get request from open weather map api
+        let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey + "&cnt=5" + "&units=metric";
+        axios.get(forecastQueryURL)
+            .then(function (response) {
+                for (i = 0; i < 5; i++) {
+
+
+                    const forecastWeatherEl = document.createElement("img");
+                    forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.list[i].weather[0].icon + "@2x.png");
+                    forecastWeatherEl.setAttribute("alt", response.data.list[i].weather[0].description);
+                    forecastEls[i].append(forecastWeatherEl);
+                    const forecastTempEl = document.createElement("p");
+                    forecastTempEl.innerHTML = "Temp: " + roundNum((response.data.list[i].main.temp) - 273.15) + " &#176F";
+                    forecastEls[i].append(forecastTempEl);
+                    const forecastHumidityEl = document.createElement("p");
+                    forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[i].main.humidity + "%";
+                    forecastEls[i].append(forecastHumidityEl);
+                }
+            })
+    }
+
     function getWeather() {
-        var cityName = searchHistory[searchHistory.length - 1]
+        var cityName = searchHistory[searchHistory.length - 1];
         //  Using saved city name, execute a current condition get request from open weather map api
-        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey;
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey + "&units=metric";
         axios.get(queryURL)
             .then(function (response) {
-                console.log(response);
-                //  Parse response to display current conditions
-                //  Method for using "date" objects obtained from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
                 $('#todayTitle').text(cityName + ', ' + moment().format("MMMM Do"));
-                $('#todayTemp').text(Math.round(((response.data.main.temp - 273.15) + Number.EPSILON) * 10) / 10);
+                $('#todayTemp').text(roundNum(response.data.main.temp));
                 $('#todayHum').text(response.data.main.humidity);
-                $('#todayWind').text(Math.round(((response.data.wind.speed * 1.609344) + Number.EPSILON) * 10) / 10);
+                $('#todayWind').text(roundNum(response.data.wind.speed));
                 let lat = response.data.coord.lat;
                 let lon = response.data.coord.lon;
                 getUVindex(lat, lon);
-                var todayImg = `<img src="https://openweathermap.org/img/wn/` +
-                    response.data.weather[0].icon + `@2x.png" style="width: 100%" alt="` +
-                    response.data.weather[0].description + `">`
-                $('#todayImg').append(todayImg)
-                //  Using saved city name, execute a 5-day forecast get request from open weather map api
+                var todayImgSrc = `https://openweathermap.org/img/wn/` + response.data.weather[0].icon + `@2x.png`
+                $('#todayImg').attr({ src: todayImgSrc, alt: response.data.weather[0].main });
                 let cityID = response.data.id;
-                let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey;
-                axios.get(forecastQueryURL)
-                    .then(function (response) {
-                        //  Parse response to display forecast for next 5 days underneath current conditions
-                        console.log(response);
-                        const forecastEls = document.querySelectorAll(".forecast");
-                        for (i = 0; i < forecastEls.length; i++) {
-                            forecastEls[i].innerHTML = "";
-                            const forecastIndex = i * 8 + 4;
-                            const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
-                            const forecastDay = forecastDate.getDate();
-                            const forecastMonth = forecastDate.getMonth() + 1;
-                            const forecastYear = forecastDate.getFullYear();
-                            const forecastDateEl = document.createElement("p");
-                            forecastDateEl.setAttribute("class", "mt-3 mb-0 forecast-date");
-                            forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
-                            forecastEls[i].append(forecastDateEl);
-                            const forecastWeatherEl = document.createElement("img");
-                            forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
-                            forecastWeatherEl.setAttribute("alt", response.data.list[forecastIndex].weather[0].description);
-                            forecastEls[i].append(forecastWeatherEl);
-                            const forecastTempEl = document.createElement("p");
-                            forecastTempEl.innerHTML = "Temp: " + k2f(response.data.list[forecastIndex].main.temp) + " &#176F";
-                            forecastEls[i].append(forecastTempEl);
-                            const forecastHumidityEl = document.createElement("p");
-                            forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
-                            forecastEls[i].append(forecastHumidityEl);
-                        }
-                    })
+                getNextWeather(cityID);
             });
     }
 
@@ -106,8 +104,8 @@ function initPage() {
         renderSearchHistory();
     })
 
-    function k2f(K) {
-        return Math.floor((K - 273.15) * 1.8 + 32);
+    function roundNum(Num) {
+        return (Math.round((Num + Number.EPSILON) * 10) / 10);
     }
 
     function renderSearchHistory() {
@@ -128,6 +126,24 @@ function initPage() {
     //  When page loads, automatically generate current conditions and 5-day forecast for the last city the user searched for
 
 }
+
+function generatePage() {
+    var nextWeatherCard = `
+    <div class="col forecast text-center" id="nextDay">
+        <h4 class="card-title">Day</h4>
+        <img class="card-img-top p-2" src="assets/img/iconPlaceholder.png" alt="Weather placeholder">
+        <p> T: <strong><span id="nextTemp"></span>°C</strong></p>
+        <p> H: <strong><span id="nextHum"></span>%</strong></p>
+    </div>
+    `
+    for (i = 0; i < 5; i++) {
+        $('#nextWeather').append(nextWeatherCard);
+        $('#nextDay').attr({ id: 'nextDay' + i })
+    }
+}
+
+generatePage();
+
 $(function () {
     initPage();
 })
