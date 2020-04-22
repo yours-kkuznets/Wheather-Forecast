@@ -89,6 +89,7 @@ function displayInfo(cityName) {
     }
     renderSearchHistory(searchHistoryArray, cityName);
     getWeather(cityName);
+    $('#cityName').val('');
 }
 
 // Check for pressed enter on input
