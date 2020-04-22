@@ -22,18 +22,19 @@ body {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: white !important;
-  opacity: 1; /* Firefox */
+#city-input:focus,
+#city-input:hover {
+  border-color: #2da8ff !important;
 }
 
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: white !important;
+.btn-neutral {
+  border-width: 1px !important;
+  border-style: solid !important;
+  color: black;
+  border-color: #c8c8c8 !important;
 }
 
-::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: white !important;
+.btn-neutral:hover {
+  color: black !important;
+  border-color: #2da8ff !important;
 }
