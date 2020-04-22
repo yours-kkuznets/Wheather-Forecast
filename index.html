@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal portflio custom website">
-    <meta name="keywords" content="Portoflio, Custom CSS, Portoflio Website, Custom Portoflio">
+    <meta name="description" content="Weather forecast">
+    <meta name="keywords" content="Wheather, weather, forecast, weather forecast">
     <meta name="author" content="Kirill Kuznetsov">
-    <title>Kirill Kuznetsov Portfolio</title>
+    <title>Wheather</title>
     <!-- Reset CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <!-- Font Awesome -->
@@ -25,13 +25,16 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-dark bg-info mb-0 sticky-top">
         <div class="float-left">
             <a href="#">
-                <img src="assets/img/icon 2.svg" height="28" alt="Wheather logo">
+                <img src="assets/img/logo.svg" height="28" alt="Wheather logo">
             </a>
         </div>
     </nav>
+
+    <!-- Instruction Alert -->
     <div class="invisible alert alert-info mb-0" role="alert" id="alert">
         <div class="container pl-0 pl-lg-3">
             <div class="alert-icon">
@@ -46,8 +49,11 @@
         </div>
     </div>
 
+    <!-- Weather Dashboard -->
     <main class="container text-dark mt-lg-5">
         <div class="row">
+
+            <!-- Search Panel -->
             <div class="col-lg-4 mt-4 pt-2">
                 <div class="card h-100" style="width: 100%;">
                     <div class="card-body container">
@@ -78,13 +84,17 @@
                         </div>
                         <div class="row">
                             <div class="col mt-1" id="historyList">
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- /Search Panel -->
+
+            <!-- Weather Panel -->
             <div class="col-lg-8 mt-4 pt-2 mb-0 pb-0">
+
+                <!-- Today Weather -->
                 <div class="row">
                     <div class="col">
                         <div class="card mb-0" style="width: 100%;">
@@ -113,6 +123,9 @@
                         </div>
                     </div>
                 </div>
+                <!-- /Today Weather -->
+
+                <!-- Next Days Weather -->
                 <div class="pt-0 mt-0 row d-flex justify-content-between">
                     <div class="col mt-4 pt-2">
                         <div class="card h-100" style="width: 100%;">
@@ -124,11 +137,16 @@
                     </div>
 
                 </div>
+                <!-- /Next Days Weather -->
             </div>
+            <!-- /Weather Panel -->
         </div>
     </main>
+    <!-- /Weather Dashboard -->
 
+    <!-- Animated Background -->
     <div id="Clouds">
+        <!-- Cannot be scripted -->
         <div class="Cloud Foreground"></div>
         <div class="Cloud Background"></div>
         <div class="Cloud Foreground"></div>
@@ -139,21 +157,7 @@
         <div class="Cloud Foreground"></div>
         <div class="Cloud Background"></div>
         <div class="Cloud Background"></div>
-        <!--  <svg viewBox="0 0 40 24" class="Cloud"><use xlink:href="#Cloud"></use></svg>-->
     </div>
-
-    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        x="0px" y="0px" width="40px" height="24px" viewbox="0 0 40 24" enable- xml:space="preserve">
-        <defs>
-            <path id="Cloud" d="M33.85,14.388c-0.176,0-0.343,0.034-0.513,0.054c0.184-0.587,0.279-1.208,0.279-1.853c0-3.463-2.809-6.271-6.272-6.271
-    	c-0.38,0-0.752,0.039-1.113,0.104C24.874,2.677,21.293,0,17.083,0c-5.379,0-9.739,4.361-9.739,9.738
-    	c0,0.418,0.035,0.826,0.084,1.229c-0.375-0.069-0.761-0.11-1.155-0.11C2.811,10.856,0,13.665,0,17.126
-    	c0,3.467,2.811,6.275,6.272,6.275c0.214,0,27.156,0.109,27.577,0.109c2.519,0,4.56-2.043,4.56-4.562
-    	C38.409,16.43,36.368,14.388,33.85,14.388z" />
-        </defs>
-    </svg>
-
-
 
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -171,9 +175,10 @@
         type="text/javascript"></script>
     <!-- Moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Custom Javascript -->
     <script src="assets/js/script.js"></script>
 </body>
-
 
 </html>
