@@ -1,13 +1,13 @@
-[contributors-shield]: https://img.shields.io/github/contributors/yours-kkuznets/Custom-CSS-Portfolio.svg?style=flat-square
-[contributors-url]: https://github.com/yours-kkuznets/Custom-CSS-Portfolio/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/yours-kkuznets/Custom-CSS-Portfolio.svg?style=flat-square
-[forks-url]: https://github.com/othneildrew/yours-kkuznets/Custom-CSS-Portfolio/network/members
-[stars-shield]: https://img.shields.io/github/stars/yours-kkuznets/Custom-CSS-Portfolio.svg?style=flat-square
-[stars-url]: https://github.com/yours-kkuznets/Custom-CSS-Portfolio/stargazers
-[issues-shield]: https://img.shields.io/github/issues/yours-kkuznets/Custom-CSS-Portfolio.svg?style=flat-square
-[issues-url]: https://github.com/yours-kkuznets/Custom-CSS-Portfolio/issues
-[license-shield]: https://img.shields.io/github/license/yours-kkuznets/Custom-CSS-Portfolio.svg?style=flat-square
-[license-url]: https://github.com/yours-kkuznets/Custom-CSS-Portfolio/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/yours-kkuznets/Wheather-Forecast.svg?style=flat-square
+[contributors-url]: https://github.com/yours-kkuznets/Wheather-Forecast/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/yours-kkuznets/Wheather-Forecast.svg?style=flat-square
+[forks-url]: https://github.com/othneildrew/yours-kkuznets/Wheather-Forecast/network/members
+[stars-shield]: https://img.shields.io/github/stars/yours-kkuznets/Wheather-Forecast.svg?style=flat-square
+[stars-url]: https://github.com/yours-kkuznets/Wheather-Forecast/stargazers
+[issues-shield]: https://img.shields.io/github/issues/yours-kkuznets/Wheather-Forecast.svg?style=flat-square
+[issues-url]: https://github.com/yours-kkuznets/Wheather-Forecast/issues
+[license-shield]: https://img.shields.io/github/license/yours-kkuznets/Wheather-Forecast.svg?style=flat-square
+[license-url]: https://github.com/yours-kkuznets/Wheather-Forecast/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/yourskkuznets
 
@@ -19,7 +19,7 @@ A mobile-first agile portfolio website made with custom CSS, featuring animation
 
 ## Link to Application
 
-Follow [this link](https://yours-kkuznets.github.io/Custom-CSS-Portfolio/) to view the application.
+Follow [this link](https://yours-kkuznets.github.io/Wheather-Forecast/) to view the application.
 
 ## Screenshots
 
@@ -47,7 +47,7 @@ You can change website's default theme by changing main colour variables in the 
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/yours-kkuznets/Custom-CSS-Portfolio/blob/master/CONTRIBUTING.md) for details on the code of conduct, and the process for submitting pull requests.
+Please read [CONTRIBUTING.md](https://github.com/yours-kkuznets/Wheather-Forecast/blob/master/CONTRIBUTING.md) for details on the code of conduct, and the process for submitting pull requests.
 
 ## Authors
 
@@ -55,7 +55,7 @@ Please read [CONTRIBUTING.md](https://github.com/yours-kkuznets/Custom-CSS-Portf
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.txt](https://github.com/yours-kkuznets/Custom-CSS-Portfolio/blob/master/LICENSE.txt) file for details
+This project is licensed under the MIT License - see the [LICENSE.txt](https://github.com/yours-kkuznets/Wheather-Forecast/blob/master/LICENSE.txt) file for details
 
 ## Acknowledgments
 
