@@ -36,7 +36,7 @@ function getNextWeather(cityID) {
     axios.get(forecastQueryURL)
         .then(function (response) {
             for (i = 0; i < 5; i++) {
-                $('#nextWeather').addClass('text-dark')
+                $('#nextWeather').addClass('text-dark');
                 $('#nextDay' + i).text(parseInt(moment().format("DD")) + i + "/" + moment().format("MM"));
                 var nextImgSrc = "https://openweathermap.org/img/wn/" + response.data.list[i].weather[0].icon + "@2x.png";
                 $('#nextImg' + i).attr({ src: nextImgSrc, alt: response.data.list[i].weather[0].description });
@@ -84,6 +84,7 @@ function displayInfo(cityName) {
         cityName = searchHistoryArray[0];
     }
     else {
+        $('#alert').attr({ class: 'visible alert alert-info mb-0' })
         return
     }
     renderSearchHistory(searchHistoryArray, cityName);
