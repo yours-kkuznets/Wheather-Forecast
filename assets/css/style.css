@@ -38,3 +38,11 @@ body {
   color: black !important;
   border-color: #2da8ff !important;
 }
+
+.btn-default {
+  background-color: #c8c8c8;
+}
+
+.btn-default:hover {
+  background-color: #d0d0d0;
+}
