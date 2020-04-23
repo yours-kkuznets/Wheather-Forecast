@@ -1,7 +1,7 @@
 [contributors-shield]: https://img.shields.io/github/contributors/yours-kkuznets/Wheather-Forecast.svg?style=flat-square
 [contributors-url]: https://github.com/yours-kkuznets/Wheather-Forecast/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/yours-kkuznets/Wheather-Forecast.svg?style=flat-square
-[forks-url]: https://github.com/othneildrew/yours-kkuznets/Wheather-Forecast/network/members
+[forks-url]: https://github.com/yours-kkuznets/Wheather-Forecast/network/members
 [stars-shield]: https://img.shields.io/github/stars/yours-kkuznets/Wheather-Forecast.svg?style=flat-square
 [stars-url]: https://github.com/yours-kkuznets/Wheather-Forecast/stargazers
 [issues-shield]: https://img.shields.io/github/issues/yours-kkuznets/Wheather-Forecast.svg?style=flat-square
